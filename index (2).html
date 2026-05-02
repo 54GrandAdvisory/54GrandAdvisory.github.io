@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>54 Grand Advisory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slate:   #4A5F75;
+      --slate-light: #6B8399;
+      --sage:    #7A9A82;
+      --sand:    #C8B89A;
+      --sand-light: #EDE5D8;
+      --cream:   #F7F4F0;
+      --ink:     #1E2A35;
+      --ink-soft:#3A4A58;
+      --white:   #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(247,244,240,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(74,95,117,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--slate); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--slate); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 5rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #home::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(122,154,130,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(200,184,154,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--slate);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--slate);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid var(--slate);
+      color: var(--slate);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-left: 1rem;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-ghost:hover { background: var(--slate); color: var(--white); }
+
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-emblem {
+      width: 320px;
+      height: 320px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Three pillars mark */
+    .mark {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .mark-bar {
+      width: 52px;
+      border-radius: 2px;
+      opacity: 0.9;
+      animation: riseBar 1.4s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    .mark-bar:nth-child(1) { height: 120px; background: var(--slate-light); animation-delay: 0.1s; }
+    .mark-bar:nth-child(2) { height: 160px; background: var(--slate);       animation-delay: 0.25s; }
+    .mark-bar:nth-child(3) { height: 120px; background: var(--sage);         animation-delay: 0.4s; }
+    @keyframes riseBar {
+      from { transform: scaleY(0); opacity: 0; transform-origin: bottom; }
+      to   { transform: scaleY(1); opacity: 0.9; transform-origin: bottom; }
+    }
+    .mark-label {
+      position: absolute;
+      bottom: -2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      white-space: nowrap;
+    }
+
+    /* ─── SECTION WRAPPER ─────────────────────────────────── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em { font-style: italic; color: var(--slate); }
+    .section-intro {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 560px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+    .divider {
+      width: 48px; height: 2px;
+      background: var(--sand);
+      margin: 1.5rem 0;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .stat {
+      border-top: 1px solid var(--sand-light);
+      padding-top: 1.25rem;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      margin-top: 0.35rem;
+      font-weight: 300;
+    }
+    .about-right {
+      position: relative;
+    }
+    .about-pull {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--slate);
+      line-height: 1.5;
+      border-left: 3px solid var(--sand);
+      padding-left: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    /* ─── GRAND THREE ─────────────────────────────────────── */
+    #model {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    #model .section-title { color: var(--cream); }
+    #model .section-intro { color: rgba(237,229,216,0.7); }
+    #model .section-label { color: var(--sand); }
+    #model .divider { background: var(--sand); }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 3.5rem;
+      background: rgba(255,255,255,0.08);
+    }
+    .model-card {
+      background: rgba(30,42,53,0.95);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .model-card:hover { background: rgba(74,95,117,0.3); }
+    .model-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(200,184,154,0.25);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .model-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--sand-light);
+      margin-bottom: 1rem;
+    }
+    .model-card-body {
+      font-size: 0.88rem;
+      color: rgba(237,229,216,0.65);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .pillars-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 1.5px;
+      background: rgba(255,255,255,0.08);
+    }
+    .pillar-card {
+      background: rgba(30,42,53,0.7);
+      padding: 1.5rem;
+      font-size: 0.82rem;
+      color: rgba(237,229,216,0.55);
+      letter-spacing: 0.05em;
+      font-weight: 300;
+    }
+    .pillar-card strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--sage);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0;
+    }
+
+    .drivers-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-top: 1.5px;
+      background: rgba(255,255,255,0.08);
+    }
+    .driver-card {
+      background: rgba(30,42,53,0.5);
+      padding: 1.25rem 1rem;
+      font-size: 0.78rem;
+      color: rgba(237,229,216,0.45);
+      letter-spacing: 0.04em;
+      font-weight: 300;
+    }
+    .driver-card strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--slate-light);
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0;
+    }
+
+    .model-legend {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(237,229,216,0.4);
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      display: inline-block; margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+      background: var(--sand-light);
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s, transform 0.2s;
+      position: relative;
+    }
+    .service-card:hover {
+      background: var(--cream);
+      transform: translateY(-3px);
+    }
+    .service-icon {
+      width: 36px; height: 36px;
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+    }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+    .service-body {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    /* ─── BLOG ────────────────────────────────────────────── */
+    #blog { background: var(--sand-light); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .blog-card {
+      background: var(--white);
+      padding: 2rem;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .blog-card:hover { transform: translateY(-3px); }
+    .blog-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .blog-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+    .blog-excerpt {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .blog-date {
+      font-size: 0.72rem;
+      color: var(--sand);
+      margin-top: 1.25rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid var(--sand-light);
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--slate); }
+    .contact-info { padding-top: 0.5rem; }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.75rem;
+    }
+    .contact-info-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+    .contact-info-value {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(237,229,216,0.5);
+      padding: 2.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--sand-light);
+      text-transform: uppercase;
+    }
+
+    /* ─── FADE-IN ─────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      #home, #about, #contact { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .hero-right { display: none; }
+      .model-grid { grid-template-columns: 1fr; }
+      .pillars-row { grid-template-columns: 1fr 1fr; }
+      .drivers-row { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">54 Grand <span>Advisory</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#model">The Model</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left fade-in">
+    <p class="hero-eyebrow">Senior Leadership Performance Advisory</p>
+    <h1 class="hero-h1">Where <em>strategy</em><br>meets the<br>people who lead it.</h1>
+    <p class="hero-sub">54 Grand Advisory partners with senior executives to align strategy, strengthen leadership, and build the organizational capacity to perform — at every level.</p>
+    <a href="#model" class="btn-primary">Explore the Model</a>
+    <a href="#contact" class="btn-ghost">Work With Us</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-emblem">
+      <div class="mark">
+        <div class="mark-bar"></div>
+        <div class="mark-bar"></div>
+        <div class="mark-bar"></div>
+      </div>
+      <span class="mark-label">Strategy · Leadership · Talent</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">Built on <em>twenty years</em><br>at the top</h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      54 Grand Advisory was founded to bring rigorous, field-tested methodology to the complex work of senior leadership performance — not as a program, but as a partnership.
+    </p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years in Enterprise Learning & Development</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">C-Suite</div>
+        <div class="stat-label">Peer-Level Executive Partnership</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Dimensions of Organizational Performance</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Proprietary Model. Proven Results.</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right fade-in">
+    <p class="about-pull">"Performance doesn't break at the strategy level. It breaks in the gap between strategy and the people meant to execute it."</p>
+    <p class="about-body">
+      54 Grand Advisory was created to close that gap. Drawing on deep expertise leading enterprise talent and field leadership development at the highest levels of the insurance and financial services industries, the firm brings a practitioner's lens — not a consultant's — to every engagement.<br><br>
+      We work where it counts: at the intersection of organizational ambition and human capability. Our clients are senior leaders who know something isn't working — and are ready to understand exactly why.
+    </p>
+  </div>
+</section>
+
+<!-- GRAND THREE MODEL -->
+<section id="model">
+  <p class="section-label fade-in">Proprietary Methodology</p>
+  <h2 class="section-title fade-in">The Grand Three™<br><em>Performance Model</em></h2>
+  <div class="divider fade-in"></div>
+  <p class="section-intro fade-in">
+    A proprietary framework for diagnosing and elevating organizational performance — built for senior leaders who need clarity, not complexity.
+  </p>
+
+  <div class="model-grid fade-in">
+    <div class="model-card">
+      <div class="model-card-num">01</div>
+      <div class="model-card-title">Strategy</div>
+      <p class="model-card-body">Is the organization clear on where it is going and why? Strategy at the executive level isn't just planning — it's the shared operating logic that makes aligned action possible.</p>
+    </div>
+    <div class="model-card">
+      <div class="model-card-num">02</div>
+      <div class="model-card-title">Leadership</div>
+      <p class="model-card-body">Do the leaders in place have the capability, clarity, and influence to drive strategy forward? Leadership is the multiplier — or the constraint — on every organizational initiative.</p>
+    </div>
+    <div class="model-card">
+      <div class="model-card-num">03</div>
+      <div class="model-card-title">Talent</div>
+      <p class="model-card-body">Is the right talent in the right roles — developed, engaged, and aligned to performance? Talent is the living infrastructure of strategy. Without it, the rest is aspiration.</p>
+    </div>
+  </div>
+
+  <div class="pillars-row fade-in">
+    <div class="pillar-card"><strong>Clarity</strong>Shared direction, defined expectations, and strategic coherence at every tier.</div>
+    <div class="pillar-card"><strong>Accountability</strong>Systems and culture that make ownership real — not performative.</div>
+    <div class="pillar-card"><strong>People</strong>The human architecture: capability, capacity, and development at scale.</div>
+    <div class="pillar-card"><strong>Culture</strong>The environment that sustains or undermines everything else.</div>
+  </div>
+
+  <div class="drivers-row fade-in">
+    <div class="driver-card"><strong>Vision</strong>The clarity of direction leaders bring to every room they enter.</div>
+    <div class="driver-card"><strong>Alignment</strong>How effectively leaders translate strategy into shared purpose.</div>
+    <div class="driver-card"><strong>Decision-Making</strong>The quality and speed of high-stakes choices under pressure.</div>
+    <div class="driver-card"><strong>Execution</strong>The discipline between intent and outcome — consistently.</div>
+    <div class="driver-card"><strong>Influence</strong>The ability to move people, culture, and systems without direct authority.</div>
+  </div>
+
+  <div class="model-legend fade-in">
+    <span><span class="legend-dot" style="background:var(--sand)"></span>Grand Three™ · Executive Entry Point</span>
+    <span><span class="legend-dot" style="background:var(--sage)"></span>Organizational Pillars · Diagnostic Layer</span>
+    <span><span class="legend-dot" style="background:var(--slate-light)"></span>Leadership Drivers · Behavioral Layer</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="fade-in">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Engagements built<br>for <em>executive stakes</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">We work in focused, high-impact partnership — not as a vendor, but as a strategic thought partner embedded in your most critical leadership challenges.</p>
+  </div>
+
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="20" width="8" height="12" fill="#4A5F75"/>
+        <rect x="14" y="12" width="8" height="20" fill="#4A5F75"/>
+        <rect x="24" y="4" width="8" height="28" fill="#7A9A82"/>
+      </svg>
+      <div class="service-title">Organizational Performance Diagnostic</div>
+      <p class="service-body">A structured assessment of where your organization stands across the Grand Three™ — and a clear-eyed view of where the gaps are costing you performance, retention, and momentum.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="10" r="6" fill="#4A5F75"/>
+        <path d="M6 32c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#7A9A82" stroke-width="2" fill="none"/>
+      </svg>
+      <div class="service-title">Senior Leadership Development</div>
+      <p class="service-body">Bespoke development strategy and programming designed for senior leaders — targeted to the five Leadership Drivers and grounded in the real contexts they navigate daily.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 18h28M18 4v28" stroke="#4A5F75" stroke-width="2"/>
+        <circle cx="18" cy="18" r="6" fill="#C8B89A"/>
+      </svg>
+      <div class="service-title">Enterprise Learning Strategy</div>
+      <p class="service-body">End-to-end learning strategy advisory for CHROs and CLOs: from ecosystem architecture to measurement frameworks that connect learning investment to business outcomes.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="28" height="28" rx="2" stroke="#4A5F75" stroke-width="2" fill="none"/>
+        <path d="M4 14h28" stroke="#C8B89A" stroke-width="1.5"/>
+        <path d="M14 14v18" stroke="#C8B89A" stroke-width="1.5"/>
+      </svg>
+      <div class="service-title">Executive Team Effectiveness</div>
+      <p class="service-body">Facilitated work with C-suite and senior leadership teams — building alignment, improving decision-making, and strengthening the collective leadership that drives organizational outcomes.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 28L18 8l10 20" stroke="#4A5F75" stroke-width="2" fill="none"/>
+        <path d="M11 22h14" stroke="#7A9A82" stroke-width="1.5"/>
+      </svg>
+      <div class="service-title">Talent Strategy & Succession</div>
+      <p class="service-body">Helping organizations build robust pipelines for critical roles — with clarity on what "ready now" looks like, and a structured path to develop the leaders who aren't there yet.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 4L4 18l14 14 14-14L18 4z" stroke="#4A5F75" stroke-width="2" fill="none"/>
+        <circle cx="18" cy="18" r="4" fill="#7A9A82"/>
+      </svg>
+      <div class="service-title">Culture & Accountability Design</div>
+      <p class="service-body">Working with senior leaders to close the gap between stated culture and lived experience — building the structures, norms, and leadership behaviors that make accountability real and sustainable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / INSIGHTS -->
+<section id="blog">
+  <div class="fade-in">
+    <p class="section-label">Insights</p>
+    <h2 class="section-title">Thinking at the<br><em>edge of performance</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Perspectives on strategy, leadership, and talent from the practitioner's seat — for senior leaders navigating high-stakes organizational challenges.</p>
+  </div>
+
+  <div class="blog-grid fade-in">
+    <div class="blog-card">
+      <div class="blog-tag">Strategy</div>
+      <div class="blog-title">When Strategy Is Clear and Performance Still Lags: The Leadership Gap</div>
+      <p class="blog-excerpt">Most organizations don't fail on strategy. They fail in the translation — between what leadership decides and what the organization actually does. Here's what that gap really looks like.</p>
+      <div class="blog-date">Coming Soon</div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Leadership</div>
+      <div class="blog-title">The Five Things Senior Leaders Do Differently When Accountability Is Real</div>
+      <p class="blog-excerpt">Accountability isn't a system. It's a set of behaviors — practiced by leaders, modeled publicly, and reinforced until they become cultural. We break down what that looks like at the top.</p>
+      <div class="blog-date">Coming Soon</div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Talent</div>
+      <div class="blog-title">Why Your High-Potentials Keep Leaving (and What It's Really Telling You)</div>
+      <p class="blog-excerpt">Talent flight from senior leadership pipelines is rarely about compensation. It's a signal — and understanding it requires looking at Clarity, Culture, and the leadership behaviors driving both.</p>
+      <div class="blog-date">Coming Soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Let's start a<br><em>real conversation</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">If something in your organization isn't performing the way it should, we'd like to hear about it. Most engagements begin with a single conversation.</p>
+
+    <div class="contact-info" style="margin-top:2.5rem;">
+      <div class="contact-info-item">
+        <span class="contact-info-label">Location</span>
+        <span class="contact-info-value">New York City, NY</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-info-label">Inquiries</span>
+        <span class="contact-info-value">hello@54grandadvisory.com</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-info-label">Engagements</span>
+        <span class="contact-info-value">Advisory · Consulting · Speaking</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-in">
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="First and last name" />
+      </div>
+      <div class="form-group">
+        <label>Organization</label>
+        <input type="text" placeholder="Company or institution" />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Area of Interest</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Organizational Performance Diagnostic</option>
+          <option>Senior Leadership Development</option>
+          <option>Enterprise Learning Strategy</option>
+          <option>Executive Team Effectiveness</option>
+          <option>Talent Strategy & Succession</option>
+          <option>Culture & Accountability Design</option>
+          <option>Speaking / Advisory</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us what's on your mind</label>
+        <textarea rows="5" placeholder="Briefly describe what you're working through..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="cursor:pointer;border:none;font-family:inherit;">Send Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">54 Grand Advisory</span>
+  <span>© 2025 54 Grand Advisory. All rights reserved.</span>
+  <span>New York City, NY</span>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 10 ? '0 2px 20px rgba(30,42,53,0.08)' : 'none';
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = 'var(--sage)';
+    setTimeout(() => { btn.textContent = 'Send Inquiry'; btn.style.background = ''; }, 3500);
+  }
+</script>
+</body>
+</html>
