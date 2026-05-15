@@ -35,7 +35,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 4rem;
+      padding: 1rem 4rem;
       background: rgba(247,244,240,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(74,95,117,0.1);
@@ -49,7 +49,7 @@
     }
     .nav-logo-54 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
+      font-size: 4.5rem;
       font-weight: 600;
       color: #B8972A;
       line-height: 1;
@@ -58,23 +58,33 @@
     .nav-logo-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.1;
+      line-height: 1.15;
     }
     .nav-logo-grand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.6rem;
       font-weight: 500;
       letter-spacing: 0.18em;
       color: #3A4A58;
     }
     .nav-logo-advisory {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
+      font-size: 0.85rem;
       font-weight: 300;
       letter-spacing: 0.28em;
       color: #4A5F75;
     }
-    .nav-logo svg { height: 52px; width: auto; }
+    .nav-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.78rem;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      color: var(--slate-light);
+      font-weight: 300;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       font-size: 0.78rem;
@@ -93,7 +103,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 8rem 4rem 5rem;
+      padding: 3.5rem 4rem 5rem;
       gap: 4rem;
       position: relative;
       overflow: hidden;
@@ -107,12 +117,13 @@
       pointer-events: none;
     }
     .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      font-size: 1.3rem;
+      letter-spacing: 0.16em;
       color: var(--slate-light);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
     }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
@@ -423,7 +434,108 @@
       vertical-align: middle;
     }
 
-    /* ─── SERVICES ────────────────────────────────────────── */
+    /* ─── MODEL DIAGRAM ───────────────────────────────────── */
+    .model-diagram { margin-top: 3.5rem; }
+    .tier-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .tier-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .tier-number-one { color: var(--slate); }
+    .tier-number-two { color: var(--sage); }
+    .tier-number-three { color: var(--slate); }
+    .tier-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .tier-desc {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      font-weight: 400;
+      margin-left: auto;
+    }
+    .tier-connector {
+      text-align: center;
+      color: var(--sand);
+      font-size: 1.2rem;
+      margin: 0.75rem 0;
+      opacity: 0.6;
+    }
+    /* Tier 1 - Three Forces */
+    .tier-row { display: grid; gap: 2px; background: var(--sand-light); }
+    .tier-one { grid-template-columns: repeat(3, 1fr); }
+    .tier-card {
+      padding: 2rem 1.75rem;
+      color: var(--white);
+    }
+    .tier-card-slate { background: #8E9BB5; }
+    .tier-card-dark { background: #A8B5A2; }
+    .tier-card-sage { background: #C4B49A; }
+    .tier-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .tier-card-body {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      font-weight: 300;
+      opacity: 0.85;
+    }
+    /* Tier 2 - Four Foundations */
+    .tier-two { grid-template-columns: repeat(4, 1fr); }
+    .pillar-card-new {
+      background: var(--white);
+      padding: 1.5rem;
+      border-top: 3px solid var(--sage);
+    }
+    .pillar-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card-body {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    /* Tier 3 - Five Drivers */
+    .tier-three { grid-template-columns: repeat(5, 1fr); }
+    .driver-card-new {
+      background: var(--white);
+      padding: 1.25rem 1rem;
+      border-top: 3px solid var(--slate);
+    }
+    .driver-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 0.4rem;
+    }
+    .driver-card-body {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      font-weight: 300;
+    }
     #services { background: var(--cream); }
     .services-grid {
       display: grid;
@@ -589,16 +701,30 @@
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
-      #home, #about, #contact { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2.5rem; }
-      section { padding: 4rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-tagline { display: none; }
+      .nav-logo-54 { font-size: 2.4rem; }
+      .nav-logo-grand { font-size: 1rem; }
+      .nav-logo-advisory { font-size: 0.65rem; }
+      #home { padding: 7rem 1.5rem 3rem; text-align: center; }
       .hero-right { display: none; }
+      .hero-sub { max-width: 100%; }
+      .btn-ghost { margin-left: 0; margin-top: 0.75rem; }
+      section { padding: 4rem 1.5rem; }
+      #about { padding: 4rem 1.5rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo { max-width: 220px; margin: 0 auto 1.5rem; }
+      .about-photo-col { align-items: center; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      #contact { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
       .model-grid { grid-template-columns: 1fr; }
       .pillars-row { grid-template-columns: 1fr 1fr; }
       .drivers-row { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .blog-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
+      .model-legend { flex-direction: column; gap: 0.75rem; }
+      footer { flex-direction: column; text-align: center; gap: 0.75rem; padding: 2rem 1.5rem; }
+      .btn-primary, .btn-ghost { display: block; text-align: center; margin-left: 0; }
     }
   </style>
 </head>
@@ -632,6 +758,7 @@
     <a href="#contact" class="btn-ghost">Work With Us</a>
   </div>
   <div class="hero-right">
+    <a href="#model" style="text-decoration:none;cursor:pointer;display:block;width:100%;" title="Explore The Grand Three Performance Model">
     <div class="hero-emblem">
       <svg width="100%" viewBox="150 170 380 330" role="img" xmlns="http://www.w3.org/2000/svg">
         <!-- Rectangle A — Strategy. Slate blue. Rotated left -->
@@ -645,15 +772,16 @@
           <rect x="350" y="210" width="90" height="160" rx="6" fill="#C4B49A" opacity="0.9"/>
         </g>
         <!-- Firm name -->
-        <text text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="500" letter-spacing="3">
-          <tspan x="340" y="452" fill="#B8972A">54</tspan><tspan fill="#2A2A2A"> Grand Advisory</tspan>
+        <text text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="500" letter-spacing="3">
+          <tspan x="340" y="456" fill="#B8972A">54</tspan><tspan fill="#2A2A2A"> Grand Advisory</tspan>
         </text>
         <!-- Rule -->
-        <line x1="248" y1="466" x2="432" y2="466" stroke="#DDDDDD" stroke-width="0.75"/>
+        <line x1="228" y1="472" x2="452" y2="472" stroke="#DDDDDD" stroke-width="0.75"/>
         <!-- Tagline -->
-        <text x="340" y="486" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" letter-spacing="2" fill="#AAAAAA">Three Forces.  Four Foundations.  Five Drivers.</text>
+        <text x="340" y="494" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="400" letter-spacing="2" fill="#AAAAAA">Three Forces.  Four Foundations.  Five Drivers.</text>
       </svg>
     </div>
+    </a>
   </div>
 </section>
 
@@ -760,43 +888,87 @@
     A proprietary framework for diagnosing and elevating organizational performance, built for leaders who need clarity, not complexity.
   </p>
 
-  <div class="model-grid fade-in">
-    <div class="model-card">
-      <div class="model-card-num">01</div>
-      <div class="model-card-title">Strategy</div>
-      <p class="model-card-body">Is the organization clear on where it is going and why? Strategy at the executive level isn't just planning. It's the shared operating logic that makes aligned action possible.</p>
-    </div>
-    <div class="model-card">
-      <div class="model-card-num">02</div>
-      <div class="model-card-title">Leadership</div>
-      <p class="model-card-body">Do the leaders in place have the capability, clarity, and influence to drive strategy forward? Leadership is the multiplier, and sometimes the constraint, on every organizational initiative.</p>
-    </div>
-    <div class="model-card">
-      <div class="model-card-num">03</div>
-      <div class="model-card-title">Talent</div>
-      <p class="model-card-body">Is the right talent in the right roles, developed, engaged, and aligned to performance? Talent is the living infrastructure of strategy. Without it, the rest is aspiration.</p>
-    </div>
-  </div>
+  <div class="model-diagram fade-in">
 
-  <div class="pillars-row fade-in">
-    <div class="pillar-card"><strong>Clarity</strong>Shared direction, defined expectations, and strategic coherence at every tier.</div>
-    <div class="pillar-card"><strong>Accountability</strong>Systems and culture that make ownership real, not performative.</div>
-    <div class="pillar-card"><strong>People</strong>The human architecture: capability, capacity, and development at scale.</div>
-    <div class="pillar-card"><strong>Culture</strong>The environment that sustains or undermines everything else.</div>
-  </div>
+    <!-- TIER 1: THREE FORCES -->
+    <div class="tier-label">
+      <span class="tier-number tier-number-one">01</span>
+      <span class="tier-name">Three Forces</span>
+      <span class="tier-desc">The executive entry point</span>
+    </div>
+    <div class="tier-row tier-one">
+      <div class="tier-card tier-card-slate">
+        <div class="tier-card-title">Strategy</div>
+        <div class="tier-card-body">Is the organization clear on where it is going and why? Strategy is the shared operating logic that makes aligned action possible.</div>
+      </div>
+      <div class="tier-card tier-card-dark">
+        <div class="tier-card-title">Leadership</div>
+        <div class="tier-card-body">Do the leaders in place have the capability and influence to drive strategy forward? Leadership is the multiplier on every organizational initiative.</div>
+      </div>
+      <div class="tier-card tier-card-sage">
+        <div class="tier-card-title">Talent</div>
+        <div class="tier-card-body">Is the right talent in the right roles, developed and aligned to performance? Talent is the living infrastructure of strategy.</div>
+      </div>
+    </div>
 
-  <div class="drivers-row fade-in">
-    <div class="driver-card"><strong>Vision</strong>The clarity of direction leaders bring to every room they enter.</div>
-    <div class="driver-card"><strong>Alignment</strong>How effectively leaders translate strategy into shared purpose.</div>
-    <div class="driver-card"><strong>Decision-Making</strong>The quality and speed of high-stakes choices under pressure.</div>
-    <div class="driver-card"><strong>Influence</strong>The ability to move people, culture, and systems without direct authority.</div>
-    <div class="driver-card"><strong>Execution</strong>The discipline between intent and outcome, consistently.</div>
-  </div>
+    <div class="tier-connector">▼</div>
 
-  <div class="model-legend fade-in">
-    <span><span class="legend-dot" style="background:var(--sand)"></span>Grand Three · Executive Entry Point</span>
-    <span><span class="legend-dot" style="background:var(--sage)"></span>Organizational Pillars · Diagnostic Layer</span>
-    <span><span class="legend-dot" style="background:var(--slate-light)"></span>Leadership Drivers · Behavioral Layer</span>
+    <!-- TIER 2: FOUR FOUNDATIONS -->
+    <div class="tier-label">
+      <span class="tier-number tier-number-two">02</span>
+      <span class="tier-name">Four Foundations</span>
+      <span class="tier-desc">The organizational diagnostic layer</span>
+    </div>
+    <div class="tier-row tier-two">
+      <div class="pillar-card-new">
+        <div class="pillar-card-title">Clarity</div>
+        <div class="pillar-card-body">Shared direction, defined expectations, and strategic coherence at every tier.</div>
+      </div>
+      <div class="pillar-card-new">
+        <div class="pillar-card-title">Accountability</div>
+        <div class="pillar-card-body">Systems and culture that make ownership real, not performative.</div>
+      </div>
+      <div class="pillar-card-new">
+        <div class="pillar-card-title">People</div>
+        <div class="pillar-card-body">The human architecture: capability, capacity, and development at scale.</div>
+      </div>
+      <div class="pillar-card-new">
+        <div class="pillar-card-title">Culture</div>
+        <div class="pillar-card-body">The environment that sustains or undermines everything else.</div>
+      </div>
+    </div>
+
+    <div class="tier-connector">▼</div>
+
+    <!-- TIER 3: FIVE DRIVERS -->
+    <div class="tier-label">
+      <span class="tier-number tier-number-three">03</span>
+      <span class="tier-name">Five Drivers</span>
+      <span class="tier-desc">The leadership behavioral layer</span>
+    </div>
+    <div class="tier-row tier-three">
+      <div class="driver-card-new">
+        <div class="driver-card-title">Vision</div>
+        <div class="driver-card-body">The clarity of direction leaders bring to every room they enter.</div>
+      </div>
+      <div class="driver-card-new">
+        <div class="driver-card-title">Alignment</div>
+        <div class="driver-card-body">How effectively leaders translate strategy into shared purpose.</div>
+      </div>
+      <div class="driver-card-new">
+        <div class="driver-card-title">Decision-Making</div>
+        <div class="driver-card-body">The quality and speed of high-stakes choices under pressure.</div>
+      </div>
+      <div class="driver-card-new">
+        <div class="driver-card-title">Influence</div>
+        <div class="driver-card-body">The ability to move people and systems without direct authority.</div>
+      </div>
+      <div class="driver-card-new">
+        <div class="driver-card-title">Execution</div>
+        <div class="driver-card-body">The discipline between intent and outcome, consistently.</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -810,24 +982,28 @@
   </div>
 
   <div class="blog-grid fade-in">
-    <div class="blog-card">
-      <div class="blog-tag">Leadership Strategies · Aspire Magazine · May / June 2026</div>
+    <div class="blog-card" onclick="window.open('https://digital.aspiremagazine.us/aspiremag/library/page/may___june_2026/32/', '_blank')" style="cursor:pointer;">
+      <div class="blog-tag">Featured · Aspire Magazine · May / June 2026</div>
       <div class="blog-title">Coaching Junior Advisors in an AI World</div>
       <p class="blog-excerpt">Most advisors don't struggle with leadership because they lack skill. They struggle because they apply the right skills in the wrong way. AI will change how advisors work, but it won't change why people follow them.</p>
-      <div class="blog-date">Link Coming Soon</div>
+      <div class="blog-date" style="color:var(--slate-light);font-weight:500;">Read the Article →</div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="window.location='article-accountability.html'" style="cursor:pointer;">
       <div class="blog-tag">Leadership</div>
-      <div class="blog-title">The Five Things Senior Leaders Do Differently When Accountability Is Real</div>
-      <p class="blog-excerpt">Accountability isn't a system. It's a set of behaviors, practiced by leaders, modeled publicly, and reinforced until they become cultural. We break down what that looks like at the top.</p>
-      <div class="blog-date">Coming Soon</div>
+      <div class="blog-title">The Difference Between Leaders Who Talk About Accountability and Those Who Build It</div>
+      <p class="blog-excerpt">Accountability is not a system or a policy. It is a set of behaviors, practiced by leaders, modeled publicly, and reinforced until they become the way the organization operates.</p>
+      <div class="blog-date" style="color:var(--slate-light);font-weight:500;">Read the Article →</div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="window.location='article-talent.html'" style="cursor:pointer;">
       <div class="blog-tag">Talent</div>
-      <div class="blog-title">Why Your High-Potentials Keep Leaving (and What It's Really Telling You)</div>
-      <p class="blog-excerpt">Talent flight from senior leadership pipelines is rarely about compensation. It's a signal, and understanding it requires looking at Clarity, Culture, and the leadership behaviors driving both.</p>
-      <div class="blog-date">Coming Soon</div>
+      <div class="blog-title">Talent Doesn't Leave Organizations. It Leaves What They Stop Making Possible.</div>
+      <p class="blog-excerpt">Talent flight is rarely about compensation. It is almost always about leadership, clarity, and culture. Here is how to read the signal before it costs you your best people.</p>
+      <div class="blog-date" style="color:var(--slate-light);font-weight:500;">Read the Article →</div>
     </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="insights.html" class="btn-primary">View All Insights</a>
+  </div>
   </div>
 </section>
 
@@ -902,22 +1078,22 @@
   </div>
 
   <div class="fade-in">
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" action="https://formspree.io/f/mvzljkwq" method="POST">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" placeholder="First and last name" />
+        <input type="text" name="name" placeholder="First and last name" required />
       </div>
       <div class="form-group">
         <label>Organization</label>
-        <input type="text" placeholder="Company or institution" />
+        <input type="text" name="organization" placeholder="Company or institution" />
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="your@email.com" />
+        <input type="email" name="email" placeholder="your@email.com" required />
       </div>
       <div class="form-group">
         <label>Area of Interest</label>
-        <select>
+        <select name="area_of_interest">
           <option value="">Select one</option>
           <option>Strategy & Organizational Design</option>
           <option>Performance Diagnostic</option>
@@ -933,7 +1109,7 @@
       </div>
       <div class="form-group">
         <label>Tell us what's on your mind</label>
-        <textarea rows="5" placeholder="Briefly describe what you're working through..."></textarea>
+        <textarea name="message" rows="5" placeholder="Briefly describe what you're working through..."></textarea>
       </div>
       <button type="submit" class="btn-primary" style="cursor:pointer;border:none;font-family:inherit;">Send Inquiry</button>
     </form>
