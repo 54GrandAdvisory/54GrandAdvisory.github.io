@@ -547,12 +547,7 @@
     .service-card {
       background: var(--white);
       padding: 2.5rem 2rem;
-      transition: background 0.25s, transform 0.2s;
       position: relative;
-    }
-    .service-card:hover {
-      background: var(--cream);
-      transform: translateY(-3px);
     }
     .service-icon {
       width: 36px; height: 36px;
@@ -983,10 +978,13 @@
 
   <div class="blog-grid fade-in">
     <div class="blog-card" onclick="window.open('https://digital.aspiremagazine.us/aspiremag/library/page/may___june_2026/32/', '_blank')" style="cursor:pointer;">
-      <div class="blog-tag">Featured · Aspire Magazine · May / June 2026</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+        <div class="blog-tag" style="margin-bottom:0;">Leadership Strategies · Aspire Magazine · May / June 2026</div>
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;background:#B8972A;color:white;padding:0.25rem 0.6rem;font-weight:500;white-space:nowrap;margin-left:0.75rem;">Featured</span>
+      </div>
       <div class="blog-title">Coaching Junior Advisors in an AI World</div>
       <p class="blog-excerpt">Most advisors don't struggle with leadership because they lack skill. They struggle because they apply the right skills in the wrong way. AI will change how advisors work, but it won't change why people follow them.</p>
-      <div class="blog-date" style="color:var(--slate-light);font-weight:500;">Read the Article →</div>
+      <div class="blog-date" style="color:#B8972A;font-weight:500;">Read in Aspire →</div>
     </div>
     <div class="blog-card" onclick="window.location='article-accountability.html'" style="cursor:pointer;">
       <div class="blog-tag">Leadership</div>
@@ -1037,7 +1035,7 @@
       </p>
       <div class="about-stats">
         <div class="stat">
-          <div class="stat-num">20+</div>
+          <div class="stat-num">25+</div>
           <div class="stat-label">Years Building Strategy, Developing Leaders & Driving Performance</div>
         </div>
         <div class="stat">
@@ -1079,6 +1077,7 @@
 
   <div class="fade-in">
     <form class="contact-form" action="https://formspree.io/f/mvzljkwq" method="POST">
+      <input type="hidden" name="_next" value="https://54grandadvisory.com/thankyou.html" />
       <div class="form-group">
         <label>Your Name</label>
         <input type="text" name="name" placeholder="First and last name" required />
