@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | 54 Grand Advisory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slate:   #4A5F75;
+      --slate-light: #6B8399;
+      --sand:    #C8B89A;
+      --sand-light: #EDE5D8;
+      --cream:   #F7F4F0;
+      --ink:     #1E2A35;
+      --ink-soft:#3A4A58;
+      --white:   #FFFFFF;
+      --gold:    #B8972A;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    nav { display: flex; align-items: center; padding: 1.5rem 4rem; border-bottom: 1px solid rgba(74,95,117,0.1); background: var(--white); }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo-54 { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: var(--gold); line-height: 1; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-grand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; letter-spacing: 0.18em; color: #3A4A58; }
+    .nav-logo-advisory { font-family: 'Cormorant Garamond', serif; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.28em; color: #4A5F75; }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .divider { width: 48px; height: 2px; background: var(--sand); margin: 1.5rem auto; }
+    .thank-you-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
+    .thank-you-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--ink); line-height: 1.2; margin-bottom: 1rem; }
+    .thank-you-title em { font-style: italic; color: var(--slate); }
+    .thank-you-body { font-size: 1rem; color: var(--ink-soft); font-weight: 300; line-height: 1.85; max-width: 480px; margin-bottom: 2.5rem; }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.2rem; background: var(--slate); color: var(--white); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; transition: background 0.25s; margin: 0.5rem; }
+    .btn-primary:hover { background: var(--ink); }
+    .btn-ghost { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid var(--slate); color: var(--slate); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; margin: 0.5rem; transition: background 0.25s, color 0.25s; }
+    .btn-ghost:hover { background: var(--slate); color: var(--white); }
+    footer { background: var(--ink); color: rgba(237,229,216,0.5); padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.2em; color: var(--sand-light); text-transform: uppercase; }
+    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-54">54</span>
+    <span class="nav-logo-text">
+      <span class="nav-logo-grand">GRAND</span>
+      <span class="nav-logo-advisory">ADVISORY</span>
+    </span>
+  </a>
+</nav>
+
+<div class="content">
+  <p class="thank-you-label">Message Received</p>
+  <h1 class="thank-you-title">Thank you for<br><em>reaching out.</em></h1>
+  <div class="divider"></div>
+  <p class="thank-you-body">
+    We have received your inquiry and will be in touch shortly. In the meantime, feel free to explore our insights or learn more about how we work.
+  </p>
+  <div>
+    <a href="index.html" class="btn-primary">Back to Home</a>
+    <a href="insights.html" class="btn-ghost">Read Our Insights</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">54 Grand Advisory</span>
+  <span>© 2025 54 Grand Advisory. All rights reserved.</span>
+  <span>New York City, NY</span>
+</footer>
+
+</body>
+</html>
